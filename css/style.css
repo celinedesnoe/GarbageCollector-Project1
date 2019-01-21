@@ -1,0 +1,128 @@
+/* 
+Default CSS (global & small screen)
+-----------------------------------
+*/
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #015a92;
+}
+
+/* Pop up  */
+
+.popup-welcome,
+.popup-rules {
+  width: 700px;
+  height: 450px;
+  position: fixed;
+  background-color: white;
+  color: #015a92;
+  border: 10px solid #fecc02;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  padding: 30px;
+}
+
+.active {
+  display: none;
+}
+
+.popup-div {
+  margin-bottom: 10px;
+}
+
+.points-rule {
+  font-size: 30px;
+}
+
+.btn-rules,
+.btn-play {
+  background-color: #015a92;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.yellow {
+  color: #fecc02;
+  font-weight: 800;
+}
+
+.green {
+  color: #1da676;
+  font-weight: 800;
+}
+
+/* --------- */
+
+.flex-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background-color: #015a92;
+  text-align: center;
+  padding: 2px 0 2px 0;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+.flex-middle {
+  display: flex;
+  justify-content: space-around;
+  color: #015a92;
+}
+
+.canvas {
+  border: 4px solid #015a92;
+}
+
+.flex-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-color: #015a92;
+  color: white;
+  width: 300px;
+  height: 450px;
+  border: 4px solid #015a92;
+}
+
+.points {
+  font-size: 150px;
+}
+
+/* 
+Other CSS rules for MEDIUM size screens (768px and above)
+---------------------------------------------------------
+*/
+
+@media (min-width: 768px) {
+  header {
+    display: block;
+  }
+
+  .rule {
+    display: block;
+  }
+
+  .score {
+    display: block;
+  }
+}
+
+/* 
+Other CSS rules for LARGE size screens (1200px and above)
+---------------------------------------------------------
+*/
+
+/* @media (min-width: 1200px) {
+} */
