@@ -21,10 +21,75 @@ $(".btn-play").click(function() {
   $(".flex-header, .flex-middle").css({ opacity: "1" });
 });
 
-//Once the button is clicked background opacity is back
-// $(".btn-rules").click(function() {
-//   $(".flex-header, .flex-middle").css({ opacity: "1" });
-// });
+// Waste falling down
+// -------------------
+
+function falling(
+  garbagePicto,
+  garbageX,
+  garbageY,
+  garbageWidth,
+  garbageHeight
+) {
+  this.picto = garbagePicto;
+  this.x = garbageX;
+  this.y = garbageY;
+  this.width = garbageWidth;
+  this.height = garbageHeight;
+  // when a garbage crashes it will disappear
+  this.isCrashed = false;
+}
+
+// OK
+//create an array with random x position and picto
+
+var allGarbage = [];
+
+// var yellowGarbage = [
+//   canImg.src,
+//   cartonImg.src,
+//   cartonImg.src,
+//   envelopImg.src,
+//   newspaperImg.src,
+//   plasticBottleImg.src,
+//   tinCanImg.src,
+//   toothPasteImg.src
+// ];
+
+// var yellowGarbage = [
+//   canImg,
+//   cartonImg,
+//   envelopImg,
+//   newspaperImg,
+//   plasticBottleImg,
+//   tinCanImg,
+//   toothPasteImg
+// ];
+
+var yellowGarbage = ["./images/yellowBin.svg", "./images/greenBin.png"];
+
+//while statement to be modified until win or lose
+while (allGarbage.length < 20) {
+  var itemGarbage = new falling(
+    yellowGarbage[Math.floor(Math.random() * yellowGarbage.length)],
+    Math.floor(Math.random() * 450),
+    0,
+    50,
+    50
+  );
+  allGarbage.push(itemGarbage);
+}
+
+//
+
+//NEED to make sure it takes a random image but keep it
+// function drawRandomGarbage() {
+//   currentyellow =
+//     yellowGarbage[Math.floor(Math.random() * yellowGarbage.length)];
+//   this.y += 20;
+//   // draw random image
+//   ctx.drawImage(currentyellow, this.x, this.y, this.width, this.height);
+// }
 
 //Canvas
 //---------------
@@ -40,12 +105,7 @@ yellowBinImg.src = "./images/yellowBin.svg";
 var greenBinImg = new Image();
 greenBinImg.src = "./images/greenBin.png";
 
-var binImg = [yellowBinImg, greenBinImg];
 var currentBinImg = yellowBinImg;
-
-// Function random for the waste
-// Need to find where to put the click function with space to change the color
-// currentBin = currentBin[Math.floor(Math.random() * zombies.length)];
 
 //Waste
 //-------------------------------
@@ -72,22 +132,23 @@ var toothPasteImg = new Image();
 toothPasteImg.src = "./images/yellowGarbage/toothPaste.svg";
 
 //Array of yellow waste
-var yellowGarbage = [
-  canImg,
-  cartonImg,
-  envelopImg,
-  newspaperImg,
-  plasticBottleImg,
-  tinCanImg,
-  toothPasteImg
-];
+// var yellowGarbage = [
+//   canImg,
+//   cartonImg,
+//   envelopImg,
+//   newspaperImg,
+//   plasticBottleImg,
+//   tinCanImg,
+//   toothPasteImg
+// ];
 
 //Waste for the green bin
-var brokenGlassImg = new Image();
-brokenGlassImg.src = "./images/greenGarbage/brokenGlass.svg";
+// var brokenGlassImg = new Image();
+// brokenGlassImg.src = "./images/greenGarbage/brokenGlass.svg";
 
-var diaperImg = new Image();
-diaperImg.src = "./images/greenGarbage/diaper.svg";
+// var diaperImg = new Image();
+// diaperImg.src = "./images/greenGarbage/diaper.svg";
+// diaperImg.color = "green";
 
 // var fishBoneImg = new Image();
 // fishBoneImg.src = ".images/greenGarbage.fishBone.svg";
@@ -102,14 +163,14 @@ diaperImg.src = "./images/greenGarbage/diaper.svg";
 // medicinePlasticStripImg.src = ".images/greenGarbage/medicinePlasticStrip.svg";
 
 //Array of green waste
-var greenGarbage = [
-  brokenGlassImg,
-  diaperImg
-  // fishBoneImg,
-  // bananaPeelImg,
-  // dirtyTissueImg,
-  // medicinePlasticStripImg
-];
+// var greenGarbage = [
+//   brokenGlassImg,
+//   diaperImg
+//   // fishBoneImg,
+//   // bananaPeelImg,
+//   // dirtyTissueImg,
+//   // medicinePlasticStripImg
+// ];
 
 //Creating an object for the bins that will help if collision
 // group up bin's variables in an object (easier to detect crashes later)
@@ -132,26 +193,24 @@ bin.onload = function() {
   ctx.drawImage(currentBinImg, bin.x, bin.y, bin.width, bin.height);
 };
 
-// Call "drawingLoop"
-//--------------------
-
-drawingLoop();
-
-function drawingLoop() {
-  ctx.clearRect(0, 0, 700, 450);
-  drawBin();
-
-  // requestAnimationFrame(function() {
-  //   drawingLoop();
-  // });
+function drawGarbage() {
+  allGarbage.forEach(function(oneGarbage) {
+    ctx.drawImage(
+      oneGarbage.picto,
+      oneGarbage.x,
+      oneGarbage.y,
+      oneGarbage.width,
+      oneGarbage.height
+    );
+  });
 }
 
 //Keydown event
 //------------
 
 document.onkeydown = function(event) {
-  console.log("keydown OK");
-  console.log(event);
+  // console.log("keydown OK");
+  // console.log(event);
 
   switch (event.keyCode) {
     case 37: // left arrow key
@@ -177,35 +236,20 @@ document.onkeydown = function(event) {
   }
 };
 
-// Waste falling down
-// -------------------
-var allGarbage = [];
+// Call "drawingLoop"
+//--------------------
 
-class Garbage {
-  constructor(garbageX, garbageY, garbageWidth, garbageHeight, garbageImg) {
-    this.x = garbageX;
-    this.y = garbageY;
-    this.width = garbageWidth;
-    this.height = garbageHeight;
-    this.Image = garbageImg;
-    // when a garbage crashes it will disappear
-    this.isCrashed = false;
-  }
-
-  drawRandomGarbage() {
-    var index = Math.floor(Math.random() * yellowGarbage.length);
-    var xPosition = Math.floor(Math.random() * 700);
-    var garbage = new Garbage(xPosition, 0, 30, 30, yellowGarbage[index]);
-
-    ctx.drawImage(
-      yellowGarbage[index],
-      garbage.x,
-      garbage.y,
-      garbage.width,
-      garbage.height
-    );
-  }
+function drawingLoop() {
+  ctx.clearRect(0, 0, 700, 450);
+  drawBin();
+  // drawFalling();
+  drawGarbage();
+  requestAnimationFrame(function() {
+    drawingLoop();
+  });
 }
+
+drawingLoop();
 
 // function drawGarbage() {}
 
