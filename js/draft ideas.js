@@ -1,3 +1,19 @@
+for (i = 0; i < allGarbage.length; i++) {
+  if (
+    itemX + itemGarbage.width >= allGarbage[i - 1].x &&
+    itemX <= allGarbage[i - 1].x + allGarbage[i - 1].width
+  ) {
+    if (700 > allGarbage[i - 1].x > 350) {
+      itemX -= allGarbage[i - 1].width;
+      console.log("WRONG");
+    }
+    if (0 < allGarbage[i - 1].x < 350) {
+      itemX += allGarbage[i - 1].width;
+      console.log("WRONG BIS");
+    }
+  }
+
+
 var nbGarbage = Math.floor(Math.random() * 3);
 while (allGarbage.length < nbGarbage) {
   var itemGarbage = new Falling(
@@ -9,6 +25,29 @@ while (allGarbage.length < nbGarbage) {
   );
   allGarbage.push(itemGarbage);
 }
+
+// Waste falling down
+// -------------------
+
+// class Falling {
+//   constructor(garbagePicto, garbageX, garbageY, garbageWidth, garbageHeight) {
+//     this.picto = garbagePicto;
+//     this.x = garbageX;
+//     this.y = garbageY;
+//     this.width = garbageWidth;
+//     this.height = garbageHeight;
+//     // when a garbage crashes it will disappear
+//     this.isCrashed = false;
+//   }
+//   drawGarbage() {
+//     ctx.drawImage(this.picto, this.x, this.y, this.width, this.height);
+//   }
+// }
+
+
+
+
+
 
 // var index = Math.floor(Math.random() * yellowGarbage.length);
 

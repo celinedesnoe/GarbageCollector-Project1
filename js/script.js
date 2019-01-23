@@ -19,6 +19,8 @@ $(".btn-play").click(function() {
   $(".popup-welcome").css({ display: "none" });
   $(".popup-rules").css({ display: "none" });
   $(".flex-header, .flex-middle").css({ opacity: "1" });
+  arrayGarbage();
+  drawingLoop();
 });
 
 //Canvas
@@ -199,18 +201,32 @@ function arrayGarbage() {
   //create an array with random x position and picto
   //while statement to be modified until win or lose
   while (allGarbage.length < Math.floor(Math.random() * 3) + 1) {
+    var itemX = Math.floor(Math.random() * 600);
     var itemGarbage = new Falling(
       garbageImages[Math.floor(Math.random() * garbageImages.length)],
-      Math.floor(Math.random() * 450),
+      itemX,
       -Math.floor(Math.random() * 300),
       100,
       100
     );
-    allGarbage.push(itemGarbage);
+
+    //check if this potential new item is overlapping with one of the previous items in the array
+    var overlapping = false;
+
+    for (var i = 0; i < allGarbage.length; i++) {
+      var otherGarbage = allGarbage[i];
+      var distance = Math.abs(itemX - otherGarbage.x);
+      if (distance < otherGarbage.width) {
+        overlapping = true;
+      }
+    }
+
+    //if not overlapping, this new item is pushed in the array
+    if (!overlapping) {
+      allGarbage.push(itemGarbage);
+    }
   }
 }
-
-arrayGarbage();
 
 function drawGarbage() {
   // console.log(allGarbage);
@@ -232,19 +248,56 @@ function drawGarbage() {
 // Call "drawingLoop"
 //--------------------
 
+//Starting point = 0
+var totalPoints = 0;
+$(".points").html(totalPoints);
+
 function drawingLoop() {
-  ctx.clearRect(0, 0, 700, 450);
-  drawBin();
-  drawGarbage();
-  checkFloorCrash();
-  checkTrashBinCrash();
-  WinOrLose();
-  requestAnimationFrame(function() {
-    drawingLoop();
-  });
+  if (totalPoints < 5 && totalPoints > -5) {
+    ctx.clearRect(0, 0, 700, 450);
+    drawBin();
+    drawGarbage();
+    checkFloorCrash();
+    checkTrashBinCrash();
+    // WinOrLose();
+    requestAnimationFrame(function() {
+      drawingLoop();
+    });
+  }
+
+  if (totalPoints === 5) {
+    $(".popup-end-win").css({ display: "block" });
+    win.play();
+    return;
+  }
+  if (totalPoints === -5) {
+    $(".popup-end-lose").css({ display: "block" });
+    return;
+  }
 }
 
-drawingLoop();
+// POP UP AND BUTTON TOP PLAY AGAIN
+// ------------------------------
+
+$(".btn-play-again").click(function() {
+  $(".popup-end-win").css({ display: "none" });
+  totalPoints = 0;
+  $(".points").html(totalPoints);
+  currentBinImg = yellowBinImg;
+  allGarbage = [];
+  arrayGarbage();
+  drawingLoop();
+});
+
+$(".btn-play-again").click(function() {
+  $(".popup-end-end").css({ display: "none" });
+  totalPoints = 0;
+  $(".points").html(totalPoints);
+  currentBinImg = yellowBinImg;
+  allGarbage = [];
+  arrayGarbage();
+  drawingLoop();
+});
 
 //Collision
 //------
@@ -261,10 +314,6 @@ function rectangleCollision(rectA, rectB) {
     // return true or false
   );
 }
-
-//Starting point = 0
-var totalPoints = 0;
-$(".points").html(totalPoints);
 
 function checkFloorCrash() {
   allGarbage.forEach(function(oneElement, index) {
@@ -312,27 +361,26 @@ var win = new Audio("./music/Audience_Applause-Matthiew11-1206899159.mp3");
 var correctBin = new Audio("./music/Blop-Mark_DiAngelo-79054334.mp3");
 var wrongBin = new Audio("./music/Music Censor-SoundBible.com-818434396.mp3");
 
-function WinOrLose() {
-  if (totalPoints === 20) {
-    $(".popup-end-win").css({ display: "block" });
-    win.play();
-    cancelAnimationFrame();
+// function WinOrLose() {
+//   if (totalPoints === 10) {
+//     $(".popup-end-win").css({ display: "block" });
+//     win.play();
+//     cancelAnimationFrame();
+//     $(".btn-play-again").click(function() {
+//       $(".popup-end-win").css({ display: "none" });
+//       drawingLoop();
 
-    $(".btn-play-again").click(function() {
-      drawingLoop();
-      $(".popup-end-win").css({ display: "none" });
-    });
-  }
-  if (totalPoints === -20) {
-    $(".popup-end-lose").css({ display: "block" });
-
-    cancelAnimationFrame();
-    $(".btn-play-again").click(function() {
-      drawingLoop();
-      $(".popup-end-lose").css({ display: "none" });
-    });
-  }
-}
+//     });
+//   }
+//   if (totalPoints === -10) {
+//     $(".popup-end-lose").css({ display: "block" });
+//     cancelAnimationFrame();
+//     $(".btn-play-again").click(function() {
+//       drawingLoop();
+//       $(".popup-end-lose").css({ display: "none" });
+//     });
+//   }
+// }
 
 // function scoreWhite() {
 //   $(".points").css("color", "white");
