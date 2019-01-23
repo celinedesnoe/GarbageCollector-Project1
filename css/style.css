@@ -11,7 +11,9 @@ body {
 /* Pop up  */
 
 .popup-welcome,
-.popup-rules {
+.popup-rules,
+.popup-end-win,
+.popup-end-lose {
   width: 700px;
   height: 450px;
   position: fixed;
@@ -39,7 +41,8 @@ body {
 }
 
 .btn-rules,
-.btn-play {
+.btn-play,
+.btn-play-again {
   background-color: #015a92;
   color: white;
   border-radius: 10px;
@@ -98,6 +101,7 @@ h1 {
 
 .points {
   font-size: 150px;
+  color: white;
 }
 
 /* 

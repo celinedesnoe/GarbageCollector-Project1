@@ -1,3 +1,15 @@
+var nbGarbage = Math.floor(Math.random() * 3);
+while (allGarbage.length < nbGarbage) {
+  var itemGarbage = new Falling(
+    yellowGarbage[Math.floor(Math.random() * yellowGarbage.length)],
+    Math.floor(Math.random() * 450),
+    0,
+    50,
+    75
+  );
+  allGarbage.push(itemGarbage);
+}
+
 // var index = Math.floor(Math.random() * yellowGarbage.length);
 
 // var allGarbage = [
