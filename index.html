@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Recyling game</title>
+    <title>Waste Sorting Game</title>
     <!-- Font from Google -->
     <link
       rel="stylesheet"
@@ -23,7 +23,7 @@
     <!-- Pop up -->
     <section class="popup-welcome">
       <div class="popup-remove">
-        <h2>Welcome to the Recycling Game!</h2>
+        <h2>Welcome to the Waste Sorting Game!</h2>
         <div class="popup-div">
           Your goal? Put garbage in the correct trash bin.
         </div>
@@ -50,15 +50,15 @@
 
     <section class="popup-rules active">
       <h2>Here are the rules:</h2>
-      <div class="popup-div points-rule">+1</div>
+      <div class="points-rule">+1</div>
       <div class="popup-div">
         If you put the waste in the correct trash bin 👏🏼
       </div>
-      <div class="popup-div points-rule">-1</div>
+      <div class="points-rule">-1</div>
       <div class="popup-div">
         If you put the waste in the wrong trash bin 👎🏼
       </div>
-      <div class="popup-div points-rule">-2</div>
+      <div class="points-rule">-2</div>
       <div class="popup-div">If you don't get the waste 😱</div>
       <div class="popup-div">
         Get 20 points to access the next level, good luck! 💪🏼
@@ -70,8 +70,8 @@
       <h1>
         <img src="./images/yellowBin.svg" height="20" width="17.92" />
         <img src="./images/greenBin.svg" height="20" width="17.92" />
-        <img src="./images/whiteBin.svg" height="20" width="17.92" /> Recycling
-        game
+        <img src="./images/whiteBin.svg" height="20" width="17.92" /> Waste
+        Sorting Game
       </h1>
       <div>Move your trash bin and get the correct waste</div>
     </header>
@@ -82,7 +82,7 @@
       </div>
 
       <div class="flex-score">
-        <h2>LEVEL 1</h2>
+        <h2 class="level">LEVEL 1</h2>
         <div>Your score is:</div>
         <div class="points"></div>
         <div>Get 10 points for the next level!</div>
@@ -92,9 +92,10 @@
     <section class="popup-end-win active">
       <div class="popup-div">
         <div>
-          <h2>You Win</h2>
-          <div>Well done, you master the waste sorting!</div>
-          <button class="btn-play-again">Play Again</button>
+          <h2 class="popup-div">You Win</h2>
+          <div class="popup-div">Well done, you master the waste sorting!</div>
+          <div class="popup-div">👏🏼</div>
+          <button class="btn-next-level">Next Level</button>
         </div>
       </div>
     </section>
@@ -102,8 +103,10 @@
     <section class="popup-end-lose active">
       <div class="popup-div">
         <div>
-          <h2>You Lose</h2>
-          <div>Oops! It seems you need to review the waste sorting...</div>
+          <h2 class="popup-div">You Lose</h2>
+          <div class="popup-div">
+            Oops! It seems you need to review the waste sorting...
+          </div>
           <button class="btn-play-again">Play Again</button>
         </div>
       </div>

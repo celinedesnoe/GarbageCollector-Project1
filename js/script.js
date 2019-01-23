@@ -29,6 +29,8 @@ $(".btn-play").click(function() {
 var canvas = document.querySelector(".canvas");
 var ctx = canvas.getContext("2d");
 
+var playerLevel = 1;
+
 //Bins
 //-------------------------------
 var yellowBinImg = new Image();
@@ -42,60 +44,121 @@ var currentBinImg = yellowBinImg;
 //Waste
 //-------------------------------
 //Waste for the yellow bin
-var canImg = new Image();
-canImg.src = "./images/yellowGarbage/can.svg";
-canImg.color = "yellow";
+var belleIlloiseImg = new Image();
+belleIlloiseImg.src = "./images/yellowGarbageOK/belleIlloise.png";
+belleIlloiseImg.color = "yellow";
+
+var bonduelleImg = new Image();
+bonduelleImg.src = "./images/yellowGarbageOK/bonduelle.png";
+bonduelleImg.color = "yellow";
+
+var canPictoImg = new Image();
+canPictoImg.src = "./images/yellowGarbageOK/canPicto.svg";
+canPictoImg.color = "yellow";
 
 var cartonImg = new Image();
-cartonImg.src = "./images/yellowGarbage/carton.svg";
+cartonImg.src = "./images/yellowGarbageOK/carton.svg";
 cartonImg.color = "yellow";
 
+var chipBagImg = new Image();
+chipBagImg.src = "./images/yellowGarbageOK/chipBag.svg";
+chipBagImg.color = "yellow";
+
+var cokeImg = new Image();
+cokeImg.src = "./images/yellowGarbageOK/coke.png";
+cokeImg.color = "yellow";
+
+var cristallineImg = new Image();
+cristallineImg.src = "./images/yellowGarbageOK/cristalline.png";
+cristallineImg.color = "yellow";
+
 var envelopImg = new Image();
-envelopImg.src = "./images/yellowGarbage/envelop.svg";
+envelopImg.src = "./images/yellowGarbageOK/envelop.svg";
 envelopImg.color = "yellow";
 
+var lactelImg = new Image();
+lactelImg.src = "./images/yellowGarbageOK/lactel.png";
+lactelImg.color = "yellow";
+
+var laysImg = new Image();
+laysImg.src = "./images/yellowGarbageOK/lays.png";
+laysImg.color = "yellow";
+
+var laysBarbecueImg = new Image();
+laysBarbecueImg.src = "./images/yellowGarbageOK/laysBarbecue.png";
+laysBarbecueImg.color = "yellow";
+
+var liebigImg = new Image();
+liebigImg.src = "./images/yellowGarbageOK/liebig.png";
+liebigImg.color = "yellow";
+
+var lionImg = new Image();
+lionImg.src = "./images/yellowGarbageOK/lion.png";
+lionImg.color = "yellow";
+
 var newspaperImg = new Image();
-newspaperImg.src = "./images/yellowGarbage/newspaper.svg";
+newspaperImg.src = "./images/yellowGarbageOK/newspaper.svg";
 newspaperImg.color = "yellow";
 
-var plasticBottleImg = new Image();
-plasticBottleImg.src = "./images/yellowGarbage/plasticBottle.svg";
-plasticBottleImg.color = "yellow";
+var shampooImg = new Image();
+shampooImg.src = "./images/yellowGarbageOK/shampoo.png";
+shampooImg.color = "yellow";
 
-var tinCanImg = new Image();
-tinCanImg.src = "./images/yellowGarbage/tinCan.svg";
-tinCanImg.color = "yellow";
+var spriteImg = new Image();
+spriteImg.src = "./images/yellowGarbageOK/sprite.png";
+spriteImg.color = "yellow";
+
+var toothpasteImg = new Image();
+toothpasteImg.src = "./images/yellowGarbageOK/toothpaste.png";
+toothpasteImg.color = "yellow";
 
 var toothPasteImg = new Image();
-toothPasteImg.src = "./images/yellowGarbage/toothPaste.svg";
+toothPasteImg.src = "./images/yellowGarbageOK/toothPaste.svg";
 toothPasteImg.color = "yellow";
+
+var yoghurtImg = new Image();
+yoghurtImg.src = "./images/yellowGarbageOK/yoghurt.png";
+yoghurtImg.color = "yellow";
+
+var garbageImages = [
+  belleIlloiseImg,
+  bonduelleImg,
+  canPictoImg,
+  cartonImg,
+  chipBagImg,
+  cokeImg,
+  cristallineImg,
+  envelopImg,
+  lactelImg,
+  laysImg,
+  laysBarbecueImg,
+  liebigImg,
+  lionImg,
+  newspaperImg,
+  shampooImg,
+  spriteImg,
+  toothpasteImg,
+  toothPasteImg,
+  yoghurtImg,
+
+  bananaImg
+];
 
 //Waste
 //-------------------------------
 //Waste for the green bin
-var brokenGlassImg = new Image();
-brokenGlassImg.src = "./images/greenGarbage/brokenGlass.svg";
-brokenGlassImg.color = "green";
+
+var bananaImg = new Image();
+bananaImg.src = "./images/yellowGarbageOK/banana.svg";
+bananaImg.color = "green";
 
 var diaperImg = new Image();
-diaperImg.src = "./images/greenGarbage/diaper.svg";
+diaperImg.src = "./images/yellowGarbageOK/diaper.svg";
 diaperImg.color = "green";
 
-var fishBoneImg = new Image();
-fishBoneImg.src = "./images/greenGarbage/fishBone.svg";
-fishBoneImg.color = "green";
-
-var bananaPeelImg = new Image();
-bananaPeelImg.src = "./images/greenGarbage/bananaPeel.svg";
-bananaPeelImg.color = "green";
-
 var dirtyTissueImg = new Image();
-dirtyTissueImg.src = "./images/greenGarbage/dirtyTissue.svg";
+dirtyTissueImg.src = "./images/yellowGarbageOK/dirtyTissue.svg";
 dirtyTissueImg.color = "green";
-
-var medicinePlasticStripImg = new Image();
-medicinePlasticStripImg.src = "./images/greenGarbage/medicinePlasticStrip.svg";
-medicinePlasticStripImg.color = "green";
 
 //BIN
 //-----------------
@@ -131,7 +194,7 @@ document.onkeydown = function(event) {
     case 37: // left arrow key
       event.preventDefault();
       if (bin.x > 0) {
-        bin.x -= 20;
+        bin.x -= 30;
       } else {
         bin.x = 0;
       }
@@ -141,7 +204,7 @@ document.onkeydown = function(event) {
     case 39: // right arrow key
       event.preventDefault();
       if (bin.x < 600) {
-        bin.x += 20;
+        bin.x += 30;
       } else {
         bin.x = 600;
       }
@@ -149,32 +212,32 @@ document.onkeydown = function(event) {
 
     case 32: //space key to change the color of the bin
       event.preventDefault();
-      if (currentBinImg === yellowBinImg) {
-        currentBinImg = greenBinImg;
-        bin.color = "green";
-      } else if (currentBinImg === greenBinImg) {
-        currentBinImg = yellowBinImg;
-        bin.color = "yellow";
+      if (playerLevel === 1) {
+        if (currentBinImg === yellowBinImg) {
+          currentBinImg = greenBinImg;
+          bin.color = "green";
+        } else if (currentBinImg === greenBinImg) {
+          currentBinImg = yellowBinImg;
+          bin.color = "yellow";
+        }
+      }
+      if (playerLevel === 2) {
+        if (currentBinImg === yellowBinImg) {
+          currentBinImg = greenBinImg;
+          bin.color = "green";
+        } else if (currentBinImg === greenBinImg) {
+          currentBinImg = whiteBinImg;
+          bin.color = "white";
+        } else if (currentBinImg === whiteBinImg) {
+          currentBinImg = yellowBinImg;
+          bin.color = "yellow";
+        }
       }
       break;
   }
 };
 
-var garbageImages = [
-  canImg,
-  cartonImg,
-  envelopImg,
-  newspaperImg,
-  plasticBottleImg,
-  tinCanImg,
-  toothPasteImg,
-  brokenGlassImg,
-  diaperImg,
-  fishBoneImg,
-  bananaPeelImg,
-  dirtyTissueImg,
-  medicinePlasticStripImg
-];
+// PICKING RANDOM GARBAGE
 
 function Falling(
   garbagePicto,
@@ -233,7 +296,7 @@ function drawGarbage() {
   //create an array with random x position and picto
   allGarbage.forEach(function(oneElement, index) {
     if (!oneElement.isCrashedFloor && !oneElement.isCrashedTrashBin) {
-      oneElement.y += Math.floor(Math.random() * 4);
+      oneElement.y += 2;
     }
     ctx.drawImage(
       oneElement.picto,
@@ -259,7 +322,6 @@ function drawingLoop() {
     drawGarbage();
     checkFloorCrash();
     checkTrashBinCrash();
-    // WinOrLose();
     requestAnimationFrame(function() {
       drawingLoop();
     });
@@ -270,8 +332,9 @@ function drawingLoop() {
     win.play();
     return;
   }
-  if (totalPoints === -5) {
+  if (totalPoints <= -5) {
     $(".popup-end-lose").css({ display: "block" });
+    lose.play();
     return;
   }
 }
@@ -280,6 +343,16 @@ function drawingLoop() {
 // ------------------------------
 
 $(".btn-play-again").click(function() {
+  $(".popup-end-lose").css({ display: "none" });
+  totalPoints = 0;
+  $(".points").html(totalPoints);
+  currentBinImg = yellowBinImg;
+  allGarbage = [];
+  arrayGarbage();
+  drawingLoop();
+});
+
+$(".btn-next-level").click(function() {
   $(".popup-end-win").css({ display: "none" });
   totalPoints = 0;
   $(".points").html(totalPoints);
@@ -287,20 +360,12 @@ $(".btn-play-again").click(function() {
   allGarbage = [];
   arrayGarbage();
   drawingLoop();
+  playerLevel = 2;
+  $(".level").html("LEVEL 2");
 });
 
-$(".btn-play-again").click(function() {
-  $(".popup-end-end").css({ display: "none" });
-  totalPoints = 0;
-  $(".points").html(totalPoints);
-  currentBinImg = yellowBinImg;
-  allGarbage = [];
-  arrayGarbage();
-  drawingLoop();
-});
-
-//Collision
-//------
+// COLLISION
+// ------
 
 function rectangleCollision(rectA, rectB) {
   return (
@@ -344,9 +409,9 @@ function checkTrashBinCrash() {
         totalPoints += 1;
         $(".points").html(totalPoints);
         correctBin.play();
-        ctx.fillStyle = "#1DA676";
-        ctx.font = " 100px Montserrat";
-        ctx.fillText("+1", oneElement.x - 10, oneElement.y - 10);
+        // ctx.fillStyle = "#1DA676";
+        // ctx.font = " 100px Montserrat";
+        // ctx.fillText("+1", oneElement.x - 10, oneElement.y - 10);
       } else {
         //remove 1 point if the bin and trash color DONT match
         totalPoints -= 1;
@@ -358,33 +423,17 @@ function checkTrashBinCrash() {
 }
 
 var win = new Audio("./music/Audience_Applause-Matthiew11-1206899159.mp3");
+var lose = new Audio("./music/Sad_Trombone-Joe_Lamb-665429450.mp3");
 var correctBin = new Audio("./music/Blop-Mark_DiAngelo-79054334.mp3");
 var wrongBin = new Audio("./music/Music Censor-SoundBible.com-818434396.mp3");
 
-// function WinOrLose() {
-//   if (totalPoints === 10) {
-//     $(".popup-end-win").css({ display: "block" });
-//     win.play();
-//     cancelAnimationFrame();
-//     $(".btn-play-again").click(function() {
-//       $(".popup-end-win").css({ display: "none" });
-//       drawingLoop();
+// LEVEL 2
+// ------
 
-//     });
-//   }
-//   if (totalPoints === -10) {
-//     $(".popup-end-lose").css({ display: "block" });
-//     cancelAnimationFrame();
-//     $(".btn-play-again").click(function() {
-//       drawingLoop();
-//       $(".popup-end-lose").css({ display: "none" });
-//     });
-//   }
-// }
+//New white bin
+var whiteBinImg = new Image();
+whiteBinImg.src = "./images/whiteBin.svg";
 
-// function scoreWhite() {
-//   $(".points").css("color", "white");
-// }
+//New type of garbage
 
-// $(".points").css("color", "#1DA676");
-// setTimeout(scoreWhite(), 3000);
+//New array of garbage
