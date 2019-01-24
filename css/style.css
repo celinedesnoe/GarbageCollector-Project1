@@ -57,6 +57,10 @@ body {
   padding: 30px;
 }
 
+.popup-end-win-level2 {
+  height: 400px;
+}
+
 .active {
   display: none;
 }
@@ -133,11 +137,17 @@ h1 {
   width: 300px;
   height: 450px;
   border: 4px solid #015a92;
+  padding: 5px;
 }
 
 .points {
-  font-size: 150px;
+  font-size: 100px;
   color: white;
+}
+
+.lives {
+  font-size: 30px;
+  color: #fecc02;
 }
 
 /* 
@@ -155,7 +165,7 @@ Level Score
 
 .level {
   font-size: 30px;
-  margin: 40px 0;
+  margin: 25px 0;
 }
 
 .flex-trashbin {
@@ -195,4 +205,8 @@ Level Score
 .total-lives {
   margin: 10px 0;
   font-size: 30px;
+}
+
+.total-lives {
+  color: #fecc02;
 }

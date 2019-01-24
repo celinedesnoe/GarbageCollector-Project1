@@ -391,6 +391,8 @@ function drawGarbage() {
 
 var totalLevel1 = 0;
 $(".points").html(totalLevel1);
+var livesLevel1 = 5;
+$(".lives").html(livesLevel1);
 
 var yellowPoints = 0;
 var greenPoints = 0;
@@ -426,12 +428,14 @@ function checkFloorCrash() {
 
       if (playerLevel === 1 && oneElement.isCrashedFloor) {
         //remove 2 points
-        totalLevel1 -= 2;
-        $(".points").html(totalLevel1);
+        livesLevel1 -= 1;
+        $(".lives").html(livesLevel1);
+        wrongBin.play();
       }
       if (playerLevel === 2 && oneElement.isCrashedFloor) {
         lifeLevel2 -= 1;
         $(".total-lives").html(lifeLevel2);
+        wrongBin.play();
       }
     }
   });
@@ -456,29 +460,33 @@ function checkTrashBinCrash() {
         } else {
           //remove 1 point if the bin and trash color DONT match
           wrongBin.play();
-          totalLevel1 -= 1;
-          $(".points").html(totalLevel1);
+          livesLevel1 -= 1;
+          $(".lives").html(livesLevel1);
         }
       }
       if (playerLevel === 2) {
         if (oneElement.color === bin.color && oneElement.color === "yellow") {
           yellowPoints += 1;
           $(".yellow-points").html(yellowPoints);
+          correctBin.play();
         } else if (
           oneElement.color === bin.color &&
           oneElement.color === "green"
         ) {
           greenPoints += 1;
           $(".green-points").html(greenPoints);
+          correctBin.play();
         } else if (
           oneElement.color === bin.color &&
           oneElement.color === "white"
         ) {
           whitePoints += 1;
           $(".white-points").html(whitePoints);
+          correctBin.play();
         } else if (!(oneElement.color === bin.color)) {
           lifeLevel2 -= 1;
           $(".total-lives").html(lifeLevel2);
+          wrongBin.play();
         }
       }
     }
@@ -490,7 +498,7 @@ function checkTrashBinCrash() {
 
 function drawingLoop() {
   if (playerLevel === 1) {
-    if (totalLevel1 < 5 && totalLevel1 > -5) {
+    if (totalLevel1 < 5 && livesLevel1 > 0) {
       ctx.clearRect(0, 0, 700, 450);
       drawBin();
       drawGarbage();
@@ -507,8 +515,8 @@ function drawingLoop() {
       win.play();
       return;
     }
-    if (totalLevel1 <= -5) {
-      $(".popup-end-lose").css({ display: "block" });
+    if (livesLevel1 === 0) {
+      $(".popup-end-lose-level1").css({ display: "block" });
       $(".flex-header, .flex-middle").css({ opacity: "0.1" });
       lose.play();
       return;
@@ -570,16 +578,21 @@ $(".btn-play").click(function() {
 // ------------------------------
 
 $(".btn-play-again-level1").click(function() {
-  $(".popup-end-lose").css({ display: "none" });
-  $(".flex-header, .flex-middle").css({ opacity: "1" });
   totalLevel1 = 0;
   $(".points").html(totalLevel1);
+  var livesLevel1 = 5;
+  $(".lives").html(livesLevel1);
+  allGarbage = [];
   bin.x = canvas.width / 2 - 50;
   bin.y = canvas.height - 100;
   currentBinImg = yellowBinImg;
-  allGarbage = [];
   arrayGarbage();
   drawingLoop();
+  playerLevel = 1;
+  $(".points").html(totalLevel1);
+  $(".lived").html(livesLevel1);
+  $(".flex-header, .flex-middle").css({ opacity: "1" });
+  $(".popup-end-lose-level1").css({ display: "none" });
   console.log("WORKING LEVEL 1");
 });
 
@@ -590,6 +603,7 @@ $(".btn-next-level").click(function() {
 
 $(".btn-play-level2").click(function() {
   totalLevel1 = 0;
+  livesLevel1 = 5;
   allGarbage = [];
   bin.x = canvas.width / 2 - 50;
   bin.y = canvas.height - 100;
