@@ -12,6 +12,7 @@ body {
 
 .popup-welcome,
 .popup-rules,
+.popup-keys,
 .popup-rules-level2 {
   width: 700px;
   height: 450px;
@@ -61,6 +62,10 @@ body {
   height: 400px;
 }
 
+.popup-top {
+  margin-top: 30px;
+}
+
 .active {
   display: none;
 }
@@ -74,6 +79,7 @@ body {
 }
 
 .btn-rules,
+.btn-keys,
 .btn-play,
 .btn-play-level2,
 .btn-play-again-level1,

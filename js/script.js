@@ -567,8 +567,13 @@ $(".btn-rules").click(function() {
   $(".popup-rules").css({ display: "block" });
 });
 
-$(".btn-play").click(function() {
+$(".btn-keys").click(function() {
   $(".popup-rules").css({ display: "none" });
+  $(".popup-keys").css({ display: "block" });
+});
+
+$(".btn-play").click(function() {
+  $(".popup-keys").css({ display: "none" });
   $(".flex-header, .flex-middle").css({ opacity: "1" });
   arrayGarbage();
   drawingLoop();
@@ -579,8 +584,8 @@ $(".btn-play").click(function() {
 
 $(".btn-play-again-level1").click(function() {
   totalLevel1 = 0;
+  livesLevel1 = 5;
   $(".points").html(totalLevel1);
-  var livesLevel1 = 5;
   $(".lives").html(livesLevel1);
   allGarbage = [];
   bin.x = canvas.width / 2 - 50;
@@ -588,7 +593,7 @@ $(".btn-play-again-level1").click(function() {
   currentBinImg = yellowBinImg;
   arrayGarbage();
   drawingLoop();
-  playerLevel = 1;
+  // playerLevel = 1;
   $(".points").html(totalLevel1);
   $(".lived").html(livesLevel1);
   $(".flex-header, .flex-middle").css({ opacity: "1" });
@@ -625,6 +630,8 @@ $(".btn-play-again-level2").click(function() {
   $(".green-points").html(greenPoints);
   $(".white-points").html(whitePoints);
   lifeLevel2 = 10;
+  $(".total-lives").html(lifeLevel2);
+
   allGarbage = [];
   bin.x = canvas.width / 2 - 50;
   bin.y = canvas.height - 100;
