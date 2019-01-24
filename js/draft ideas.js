@@ -28,6 +28,7 @@ for (i = 0; i < allGarbage.length; i++) {
       console.log("WRONG BIS");
     }
   }
+}
 
 
 var nbGarbage = Math.floor(Math.random() * 3);
@@ -112,4 +113,3 @@ while (allGarbage.length < nbGarbage) {
 //   );
 //   garbage.y += 0.2;
 // }
-}
