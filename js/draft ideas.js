@@ -1,3 +1,19 @@
+$(".btn-next-level").click(function() {
+  totalPoints = 0;
+  allGarbage = [];
+  currentBinImg = yellowBinImg;
+  $(".level1").css({ display: "none" });
+  $(".level2").css({ display: "block" });
+  arrayGarbage();
+  drawingLoop();
+  playerLevel = 2;
+
+  $(".flex-header, .flex-middle").css({ opacity: "1" });
+  $(".popup-end-win").css({ display: "none" });
+
+  console.log(playerLevel);
+
+
 for (i = 0; i < allGarbage.length; i++) {
   if (
     itemX + itemGarbage.width >= allGarbage[i - 1].x &&
@@ -96,3 +112,4 @@ while (allGarbage.length < nbGarbage) {
 //   );
 //   garbage.y += 0.2;
 // }
+}

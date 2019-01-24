@@ -66,6 +66,7 @@
       <button class="btn-play">Ready? Let's recycle!</button>
     </section>
 
+    <!-- PAGE  -->
     <header class="flex-header">
       <h1>
         <img src="./images/yellowBin.svg" height="20" width="17.92" />
@@ -81,11 +82,41 @@
         <canvas class="canvas" width="700" height="450"></canvas>
       </div>
 
-      <div class="flex-score">
+      <div class="flex-score level1">
         <h2 class="level">LEVEL 1</h2>
         <div>Your score is:</div>
         <div class="points"></div>
         <div>Get 10 points for the next level!</div>
+      </div>
+
+      <div class="flex-score level2">
+        <h2 class="level">LEVEL 2</h2>
+        <div>Your scores are:</div>
+        <div class="flex-trashbin">
+          <div class="yellow-score">
+            <div>
+              <img src="./images/yellowBin.svg" height="20" width="17.92" />
+            </div>
+            <div class="yellow-points"></div>
+            <div>Get 20!</div>
+          </div>
+          <div class="green-score">
+            <div>
+              <img src="./images/greenBin.svg" height="20" width="17.92" />
+            </div>
+            <div class="green-points"></div>
+            <div>Get 5!</div>
+          </div>
+          <div class="white-score">
+            <div>
+              <img src="./images/whiteBin.svg" height="20" width="17.92" />
+            </div>
+            <div class="white-points"></div>
+            <div>Get 10!</div>
+          </div>
+        </div>
+        <div>Your total score is:</div>
+        <div class="total-score"></div>
       </div>
     </div>
 
@@ -107,7 +138,19 @@
           <div class="popup-div">
             Oops! It seems you need to review the waste sorting...
           </div>
-          <button class="btn-play-again">Play Again</button>
+          <button class="btn-play-again-level1">Play Again</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="popup-end-lose-level2 active">
+      <div class="popup-div">
+        <div>
+          <h2 class="popup-div">You Lose</h2>
+          <div class="popup-div">
+            Oops! It seems you need to review the waste sorting...
+          </div>
+          <button class="btn-play-again-level2">Play Again</button>
         </div>
       </div>
     </section>
@@ -119,6 +162,6 @@
     ></script>
 
     <script src="./js/jquery-2.1.4.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/scriptBug.js"></script>
   </body>
 </html>

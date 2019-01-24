@@ -40,7 +40,8 @@ body {
   padding: 30px;
 }
 
-.popup-end-lose {
+.popup-end-lose-level1,
+.popup-end-lose-level2 {
   width: 700px;
   height: 250px;
   position: fixed;
@@ -68,7 +69,8 @@ body {
 
 .btn-rules,
 .btn-play,
-.btn-play-again,
+.btn-play-again-level1,
+.btn-play-again-level2,
 .btn-next-level {
   background-color: #015a92;
   color: white;
@@ -99,6 +101,7 @@ body {
   text-align: center;
   padding: 2px 0 2px 0;
   margin-bottom: 20px;
+  opacity: 0;
 }
 
 h1 {
@@ -109,6 +112,7 @@ h1 {
   display: flex;
   justify-content: space-around;
   color: #015a92;
+  opacity: 0;
 }
 
 .canvas {
@@ -134,28 +138,58 @@ h1 {
 }
 
 /* 
-Other CSS rules for MEDIUM size screens (768px and above)
+Level Score
 ---------------------------------------------------------
 */
 
-@media (min-width: 768px) {
-  header {
-    display: block;
-  }
-
-  .rule {
-    display: block;
-  }
-
-  .score {
-    display: block;
-  }
+.level1 {
+  display: block;
 }
 
-/* 
-Other CSS rules for LARGE size screens (1200px and above)
----------------------------------------------------------
-*/
+.level2 {
+  display: none;
+}
 
-/* @media (min-width: 1200px) {
-} */
+.level {
+  font-size: 30px;
+  margin: 40px 0;
+}
+
+.flex-trashbin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.yellow-score {
+  background-color: white;
+  border: 2px solid #fecc02;
+  color: #015a92;
+  width: 80px;
+  height: 120px;
+}
+
+.green-score {
+  background-color: white;
+  border: 2px solid #1da676;
+  color: #015a92;
+  width: 80px;
+  height: 120px;
+}
+
+.white-score {
+  background-color: white;
+  border: 2px solid #9d9d9d;
+  color: #015a92;
+  width: 80px;
+  height: 120px;
+}
+
+.yellow-points,
+.green-points,
+.white-points,
+.total-score {
+  margin: 10px 0;
+  font-size: 30px;
+}

@@ -1,3 +1,228 @@
+//Audio
+//-------------------------------
+var win = new Audio("./music/Audience_Applause-Matthiew11-1206899159.mp3");
+var lose = new Audio("./music/Sad_Trombone-Joe_Lamb-665429450.mp3");
+var correctBin = new Audio("./music/Blop-Mark_DiAngelo-79054334.mp3");
+var wrongBin = new Audio("./music/Music Censor-SoundBible.com-818434396.mp3");
+
+//Bins
+//-------------------------------
+var yellowBinImg = new Image();
+yellowBinImg.src = "./images/yellowBin.svg";
+
+var greenBinImg = new Image();
+greenBinImg.src = "./images/greenBin.svg";
+
+var whiteBinImg = new Image();
+whiteBinImg.src = "./images/whiteBin.svg";
+
+var currentBinImg = yellowBinImg;
+
+//Waste
+//-------------------------------
+//Waste for the yellow bin
+var belleIlloiseImg = new Image();
+belleIlloiseImg.src = "./images/yellowGarbageOK/belleIlloise.png";
+belleIlloiseImg.color = "yellow";
+
+var bonduelleImg = new Image();
+bonduelleImg.src = "./images/yellowGarbageOK/bonduelle.png";
+bonduelleImg.color = "yellow";
+
+var cokeImg = new Image();
+cokeImg.src = "./images/yellowGarbageOK/coke.png";
+cokeImg.color = "yellow";
+
+var cristallineImg = new Image();
+cristallineImg.src = "./images/yellowGarbageOK/cristalline.png";
+cristallineImg.color = "yellow";
+
+var lactelImg = new Image();
+lactelImg.src = "./images/yellowGarbageOK/lactel.png";
+lactelImg.color = "yellow";
+
+var laysImg = new Image();
+laysImg.src = "./images/yellowGarbageOK/lays.png";
+laysImg.color = "yellow";
+
+var liebigImg = new Image();
+liebigImg.src = "./images/yellowGarbageOK/liebig.png";
+liebigImg.color = "yellow";
+
+var lionImg = new Image();
+lionImg.src = "./images/yellowGarbageOK/lion.png";
+lionImg.color = "yellow";
+
+var shampooImg = new Image();
+shampooImg.src = "./images/yellowGarbageOK/shampoo.png";
+shampooImg.color = "yellow";
+
+var spriteImg = new Image();
+spriteImg.src = "./images/yellowGarbageOK/sprite.png";
+spriteImg.color = "yellow";
+
+var toothpasteImg = new Image();
+toothpasteImg.src = "./images/yellowGarbageOK/toothpaste.png";
+toothpasteImg.color = "yellow";
+
+var yoghurtImg = new Image();
+yoghurtImg.src = "./images/yellowGarbageOK/yoghurt.png";
+yoghurtImg.color = "yellow";
+
+var capsImg = new Image();
+capsImg.src = "./images/yellowGarbageOK/caps.png";
+capsImg.color = "yellow";
+
+var coffeeImg = new Image();
+coffeeImg.src = "./images/yellowGarbageOK/coffee.png";
+coffeeImg.color = "yellow";
+
+var envelopImg = new Image();
+envelopImg.src = "./images/yellowGarbageOK/envelop.png";
+envelopImg.color = "yellow";
+
+var newspaperImg = new Image();
+newspaperImg.src = "./images/yellowGarbageOK/newspaper.png";
+newspaperImg.color = "yellow";
+
+var pompotesImg = new Image();
+pompotesImg.src = "./images/yellowGarbageOK/pompotes.png";
+pompotesImg.color = "yellow";
+
+var plasticBagImg = new Image();
+plasticBagImg.src = "./images/yellowGarbageOK/plasticBag.png";
+plasticBagImg.color = "yellow";
+
+var doveImg = new Image();
+doveImg.src = "./images/yellowGarbageOK/dove.png";
+doveImg.color = "yellow";
+
+//Waste
+//-------------------------------
+//Waste for the green bin
+
+var diaperImg = new Image();
+diaperImg.src = "./images/greenGarbageOK/diaper.svg";
+diaperImg.color = "green";
+
+var bananaImg = new Image();
+bananaImg.src = "./images/greenGarbageOK/banana.png";
+bananaImg.color = "green";
+
+var bonesImg = new Image();
+bonesImg.src = "./images/greenGarbageOK/bones.png";
+bonesImg.color = "green";
+
+var fishImg = new Image();
+fishImg.src = "./images/greenGarbageOK/fish.png";
+fishImg.color = "green";
+
+var glassWineImg = new Image();
+glassWineImg.src = "./images/greenGarbageOK/glassWine.png";
+glassWineImg.color = "green";
+
+var plateImg = new Image();
+plateImg.src = "./images/greenGarbageOK/plate.png";
+plateImg.color = "green";
+
+//Waste
+//-------------------------------
+//Waste for the white bin
+
+var beerImg = new Image();
+beerImg.src = "./images/whiteGarbageOK/beer.png";
+beerImg.color = "white";
+
+var glassBottleImg = new Image();
+glassBottleImg.src = "./images/whiteGarbageOK/glassBottle.png";
+glassBottleImg.color = "white";
+
+var glassGreenImg = new Image();
+glassGreenImg.src = "./images/whiteGarbageOK/glassGreen.png";
+glassGreenImg.color = "white";
+
+var glassPotImg = new Image();
+glassPotImg.src = "./images/whiteGarbageOK/glassPot.png";
+glassPotImg.color = "white";
+
+var jarImg = new Image();
+jarImg.src = "./images/whiteGarbageOK/jar.png";
+jarImg.color = "white";
+
+var perrierImg = new Image();
+perrierImg.src = "./images/whiteGarbageOK/perrier.png";
+perrierImg.color = "white";
+
+//ARRAY WITH ALL GARBAGE IMAGES
+
+var garbageImages1 = [
+  belleIlloiseImg,
+  bonduelleImg,
+  cokeImg,
+  cristallineImg,
+  lactelImg,
+  laysImg,
+  liebigImg,
+  lionImg,
+  shampooImg,
+  spriteImg,
+  toothpasteImg,
+  yoghurtImg,
+  capsImg,
+  coffeeImg,
+  envelopImg,
+  newspaperImg,
+  pompotesImg,
+  plasticBagImg,
+  doveImg,
+  diaperImg,
+  bananaImg,
+  bonesImg,
+  fishImg,
+  glassWineImg,
+  plateImg
+];
+
+var garbageImages2 = [
+  belleIlloiseImg,
+  bonduelleImg,
+  cokeImg,
+  cristallineImg,
+  lactelImg,
+  laysImg,
+  liebigImg,
+  lionImg,
+  shampooImg,
+  spriteImg,
+  toothpasteImg,
+  yoghurtImg,
+  capsImg,
+  coffeeImg,
+  envelopImg,
+  newspaperImg,
+  pompotesImg,
+  plasticBagImg,
+  doveImg,
+  diaperImg,
+  bananaImg,
+  bonesImg,
+  fishImg,
+  glassWineImg,
+  plateImg,
+  beerImg,
+  glassBottleImg,
+  glassGreenImg,
+  glassPotImg,
+  jarImg,
+  perrierImg,
+  beerImg,
+  glassBottleImg,
+  glassGreenImg,
+  glassPotImg,
+  jarImg,
+  perrierImg
+];
+
 // POP-UP
 // When loading the page
 //-----------------------
@@ -30,135 +255,6 @@ var canvas = document.querySelector(".canvas");
 var ctx = canvas.getContext("2d");
 
 var playerLevel = 1;
-
-//Bins
-//-------------------------------
-var yellowBinImg = new Image();
-yellowBinImg.src = "./images/yellowBin.svg";
-
-var greenBinImg = new Image();
-greenBinImg.src = "./images/greenBin.svg";
-
-var currentBinImg = yellowBinImg;
-
-//Waste
-//-------------------------------
-//Waste for the yellow bin
-var belleIlloiseImg = new Image();
-belleIlloiseImg.src = "./images/yellowGarbageOK/belleIlloise.png";
-belleIlloiseImg.color = "yellow";
-
-var bonduelleImg = new Image();
-bonduelleImg.src = "./images/yellowGarbageOK/bonduelle.png";
-bonduelleImg.color = "yellow";
-
-var canPictoImg = new Image();
-canPictoImg.src = "./images/yellowGarbageOK/canPicto.svg";
-canPictoImg.color = "yellow";
-
-var cartonImg = new Image();
-cartonImg.src = "./images/yellowGarbageOK/carton.svg";
-cartonImg.color = "yellow";
-
-var chipBagImg = new Image();
-chipBagImg.src = "./images/yellowGarbageOK/chipBag.svg";
-chipBagImg.color = "yellow";
-
-var cokeImg = new Image();
-cokeImg.src = "./images/yellowGarbageOK/coke.png";
-cokeImg.color = "yellow";
-
-var cristallineImg = new Image();
-cristallineImg.src = "./images/yellowGarbageOK/cristalline.png";
-cristallineImg.color = "yellow";
-
-var envelopImg = new Image();
-envelopImg.src = "./images/yellowGarbageOK/envelop.svg";
-envelopImg.color = "yellow";
-
-var lactelImg = new Image();
-lactelImg.src = "./images/yellowGarbageOK/lactel.png";
-lactelImg.color = "yellow";
-
-var laysImg = new Image();
-laysImg.src = "./images/yellowGarbageOK/lays.png";
-laysImg.color = "yellow";
-
-var laysBarbecueImg = new Image();
-laysBarbecueImg.src = "./images/yellowGarbageOK/laysBarbecue.png";
-laysBarbecueImg.color = "yellow";
-
-var liebigImg = new Image();
-liebigImg.src = "./images/yellowGarbageOK/liebig.png";
-liebigImg.color = "yellow";
-
-var lionImg = new Image();
-lionImg.src = "./images/yellowGarbageOK/lion.png";
-lionImg.color = "yellow";
-
-var newspaperImg = new Image();
-newspaperImg.src = "./images/yellowGarbageOK/newspaper.svg";
-newspaperImg.color = "yellow";
-
-var shampooImg = new Image();
-shampooImg.src = "./images/yellowGarbageOK/shampoo.png";
-shampooImg.color = "yellow";
-
-var spriteImg = new Image();
-spriteImg.src = "./images/yellowGarbageOK/sprite.png";
-spriteImg.color = "yellow";
-
-var toothpasteImg = new Image();
-toothpasteImg.src = "./images/yellowGarbageOK/toothpaste.png";
-toothpasteImg.color = "yellow";
-
-var toothPasteImg = new Image();
-toothPasteImg.src = "./images/yellowGarbageOK/toothPaste.svg";
-toothPasteImg.color = "yellow";
-
-var yoghurtImg = new Image();
-yoghurtImg.src = "./images/yellowGarbageOK/yoghurt.png";
-yoghurtImg.color = "yellow";
-
-var garbageImages = [
-  belleIlloiseImg,
-  bonduelleImg,
-  canPictoImg,
-  cartonImg,
-  chipBagImg,
-  cokeImg,
-  cristallineImg,
-  envelopImg,
-  lactelImg,
-  laysImg,
-  laysBarbecueImg,
-  liebigImg,
-  lionImg,
-  newspaperImg,
-  shampooImg,
-  spriteImg,
-  toothpasteImg,
-  toothPasteImg,
-  yoghurtImg,
-
-  bananaImg
-];
-
-//Waste
-//-------------------------------
-//Waste for the green bin
-
-var bananaImg = new Image();
-bananaImg.src = "./images/yellowGarbageOK/banana.svg";
-bananaImg.color = "green";
-
-var diaperImg = new Image();
-diaperImg.src = "./images/yellowGarbageOK/diaper.svg";
-diaperImg.color = "green";
-
-var dirtyTissueImg = new Image();
-dirtyTissueImg.src = "./images/yellowGarbageOK/dirtyTissue.svg";
-dirtyTissueImg.color = "green";
 
 //BIN
 //-----------------
@@ -264,6 +360,11 @@ function arrayGarbage() {
   //create an array with random x position and picto
   //while statement to be modified until win or lose
   while (allGarbage.length < Math.floor(Math.random() * 3) + 1) {
+    if (playerLevel === 1) {
+      var garbageImages = garbageImages1;
+    } else if (playerLevel === 2) {
+      var garbageImages = garbageImages2;
+    }
     var itemX = Math.floor(Math.random() * 600);
     var itemGarbage = new Falling(
       garbageImages[Math.floor(Math.random() * garbageImages.length)],
@@ -421,19 +522,3 @@ function checkTrashBinCrash() {
     }
   });
 }
-
-var win = new Audio("./music/Audience_Applause-Matthiew11-1206899159.mp3");
-var lose = new Audio("./music/Sad_Trombone-Joe_Lamb-665429450.mp3");
-var correctBin = new Audio("./music/Blop-Mark_DiAngelo-79054334.mp3");
-var wrongBin = new Audio("./music/Music Censor-SoundBible.com-818434396.mp3");
-
-// LEVEL 2
-// ------
-
-//New white bin
-var whiteBinImg = new Image();
-whiteBinImg.src = "./images/whiteBin.svg";
-
-//New type of garbage
-
-//New array of garbage
