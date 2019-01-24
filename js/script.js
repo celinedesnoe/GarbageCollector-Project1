@@ -395,12 +395,12 @@ $(".points").html(totalLevel1);
 var yellowPoints = 0;
 var greenPoints = 0;
 var whitePoints = 0;
-var totalLevel2 = yellowPoints + greenPoints + whitePoints;
+var lifeLevel2 = 10;
 
 $(".yellow-points").html(yellowPoints);
 $(".green-points").html(greenPoints);
 $(".white-points").html(whitePoints);
-$(".total-score").html(totalLevel2);
+$(".total-lives").html(lifeLevel2);
 
 function rectangleCollision(rectA, rectB) {
   return (
@@ -416,7 +416,6 @@ function rectangleCollision(rectA, rectB) {
 }
 
 function checkFloorCrash() {
-  totalLevel2 = yellowPoints + greenPoints + whitePoints;
   allGarbage.forEach(function(oneElement, index) {
     if (oneElement.y > 450) {
       oneElement.isCrashedFloor = true;
@@ -425,32 +424,20 @@ function checkFloorCrash() {
       //recreate a new array
       arrayGarbage();
 
-      if (playerLevel === 1) {
+      if (playerLevel === 1 && oneElement.isCrashedFloor) {
         //remove 2 points
         totalLevel1 -= 2;
         $(".points").html(totalLevel1);
       }
-      if (playerLevel === 2) {
-        if (oneElement.color === "yellow" && oneElement.isCrashedFloor) {
-          yellowPoints -= 1;
-          $(".yellow-points").html(yellowPoints);
-          $(".total-score").html(totalLevel2);
-        } else if (oneElement.color === "green" && oneElement.isCrashedFloor) {
-          greenPoints -= 1;
-          $(".green-points").html(greenPoints);
-          $(".total-score").html(totalLevel2);
-        } else if (oneElement.color === "white" && oneElement.isCrashedFloor) {
-          whitePoints -= 1;
-          $(".white-points").html(whitePoints);
-          $(".total-score").html(totalLevel2);
-        }
+      if (playerLevel === 2 && oneElement.isCrashedFloor) {
+        lifeLevel2 -= 1;
+        $(".total-lives").html(lifeLevel2);
       }
     }
   });
 }
 
 function checkTrashBinCrash() {
-  totalLevel2 = yellowPoints + greenPoints + whitePoints;
   allGarbage.forEach(function(oneElement, index) {
     if (rectangleCollision(bin, oneElement)) {
       bin.isCrashed = true;
@@ -477,27 +464,21 @@ function checkTrashBinCrash() {
         if (oneElement.color === bin.color && oneElement.color === "yellow") {
           yellowPoints += 1;
           $(".yellow-points").html(yellowPoints);
-          // totalLevel2 += 1;
-          $(".total-score").html(totalLevel2);
         } else if (
           oneElement.color === bin.color &&
           oneElement.color === "green"
         ) {
           greenPoints += 1;
           $(".green-points").html(greenPoints);
-          // totalLevel2 += 1;
-          $(".total-score").html(totalLevel2);
         } else if (
           oneElement.color === bin.color &&
           oneElement.color === "white"
         ) {
           whitePoints += 1;
           $(".white-points").html(whitePoints);
-          // totalLevel2 += 1;
-          $(".total-score").html(totalLevel2);
         } else if (!(oneElement.color === bin.color)) {
-          totalLevel2 -= 1;
-          $(".total-score").html(totalLevel2);
+          lifeLevel2 -= 1;
+          $(".total-lives").html(lifeLevel2);
         }
       }
     }
@@ -536,8 +517,8 @@ function drawingLoop() {
 
   if (playerLevel === 2) {
     if (
-      totalLevel2 > -5 &&
-      !(yellowPoints >= 20 && greenPoints >= 5 && whitePoints >= 10)
+      lifeLevel2 > 0 &&
+      !(yellowPoints >= 10 && greenPoints >= 5 && whitePoints >= 5)
     ) {
       ctx.clearRect(0, 0, 700, 450);
       drawBin();
@@ -549,13 +530,13 @@ function drawingLoop() {
       });
     }
 
-    if (yellowPoints >= 20 && greenPoints >= 5 && whitePoints >= 10) {
-      $(".popup-end-win").css({ display: "block" });
+    if (yellowPoints >= 10 && greenPoints >= 5 && whitePoints >= 5) {
+      $(".popup-end-win-level2").css({ display: "block" });
       $(".flex-header, .flex-middle").css({ opacity: "0.1" });
       win.play();
       return;
     }
-    if (totalLevel2 <= -5) {
+    if (lifeLevel2 <= 0) {
       $(".popup-end-lose-level2").css({ display: "block" });
       $(".flex-header, .flex-middle").css({ opacity: "0.1" });
       lose.play();
@@ -599,11 +580,15 @@ $(".btn-play-again-level1").click(function() {
   allGarbage = [];
   arrayGarbage();
   drawingLoop();
-  // playerLevel = 1;
   console.log("WORKING LEVEL 1");
 });
 
 $(".btn-next-level").click(function() {
+  $(".popup-end-win").css({ display: "none" });
+  $(".popup-rules-level2").css({ display: "block" });
+});
+
+$(".btn-play-level2").click(function() {
   totalLevel1 = 0;
   allGarbage = [];
   bin.x = canvas.width / 2 - 50;
@@ -615,14 +600,17 @@ $(".btn-next-level").click(function() {
   drawingLoop();
   playerLevel = 2;
   $(".flex-header, .flex-middle").css({ opacity: "1" });
-  $(".popup-end-win").css({ display: "none" });
+  $(".popup-rules-level2").css({ display: "none" });
 });
 
 $(".btn-play-again-level2").click(function() {
   yellowPoints = 0;
   greenPoints = 0;
   whitePoints = 0;
-  totalLevel2 = 0;
+  $(".yellow-points").html(yellowPoints);
+  $(".green-points").html(greenPoints);
+  $(".white-points").html(whitePoints);
+  lifeLevel2 = 10;
   allGarbage = [];
   bin.x = canvas.width / 2 - 50;
   bin.y = canvas.height - 100;

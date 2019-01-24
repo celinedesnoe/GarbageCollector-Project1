@@ -11,7 +11,8 @@ body {
 /* Pop up  */
 
 .popup-welcome,
-.popup-rules {
+.popup-rules,
+.popup-rules-level2 {
   width: 700px;
   height: 450px;
   position: fixed;
@@ -26,7 +27,8 @@ body {
   padding: 30px;
 }
 
-.popup-end-win {
+.popup-end-win,
+.popup-end-win-level2 {
   width: 700px;
   height: 250px;
   position: fixed;
@@ -69,6 +71,7 @@ body {
 
 .btn-rules,
 .btn-play,
+.btn-play-level2,
 .btn-play-again-level1,
 .btn-play-again-level2,
 .btn-next-level {
@@ -189,7 +192,7 @@ Level Score
 .yellow-points,
 .green-points,
 .white-points,
-.total-score {
+.total-lives {
   margin: 10px 0;
   font-size: 30px;
 }

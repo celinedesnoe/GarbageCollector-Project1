@@ -98,7 +98,7 @@
               <img src="./images/yellowBin.svg" height="20" width="17.92" />
             </div>
             <div class="yellow-points"></div>
-            <div>Get 20!</div>
+            <div>Get 10!</div>
           </div>
           <div class="green-score">
             <div>
@@ -112,11 +112,11 @@
               <img src="./images/whiteBin.svg" height="20" width="17.92" />
             </div>
             <div class="white-points"></div>
-            <div>Get 10!</div>
+            <div>Get 5!</div>
           </div>
         </div>
-        <div>Your total score is:</div>
-        <div class="total-score"></div>
+        <div>Your remaining lives:</div>
+        <div class="total-lives"></div>
       </div>
     </div>
 
@@ -124,11 +124,43 @@
       <div class="popup-div">
         <div>
           <h2 class="popup-div">You Win</h2>
-          <div class="popup-div">Well done, you master the waste sorting!</div>
+          <div class="popup-div">
+            Well done! Let's see if you are that good with the next level
+          </div>
           <div class="popup-div">👏🏼</div>
-          <button class="btn-next-level">Next Level</button>
+          <button class="btn-next-level">See Next Level Rules</button>
         </div>
       </div>
+    </section>
+
+    <section class="popup-rules-level2 active">
+      <h2>Here are the additional rules to win:</h2>
+      <div class="popup-div">You have now a new white bin for glass items:</div>
+      <div>
+        <img src="./images/whiteBin.svg" height="50" width="44.79" /> and get at
+        least <span class="points-rule"> 5</span> correct items in it!
+      </div>
+
+      <div class="popup-div">
+        <img src="./images/yellowBin.svg" height="50" width="44.79" /> and get
+        at least <span class="points-rule"> 10</span> correct items in the
+        yellow trash bin!
+      </div>
+
+      <div class="popup-div">
+        <img src="./images/greenBin.svg" height="50" width="44.79" /> and get at
+        least <span class="points-rule"> 5</span> correct items in the green
+        trash bin!
+      </div>
+
+      <div class="popup-div">
+        <div>Be careful you only have 10 lives</div>
+        <div>
+          If you miss one item or put it in the wrong trash bin, you lose one
+          life!
+        </div>
+      </div>
+      <button class="btn-play-level2">Ready? Let's go</button>
     </section>
 
     <section class="popup-end-lose active">
@@ -139,6 +171,16 @@
             Oops! It seems you need to review the waste sorting...
           </div>
           <button class="btn-play-again-level1">Play Again</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="popup-end-win-level2 active">
+      <div class="popup-div">
+        <div>
+          <h2 class="popup-div">You Win</h2>
+          <div class="popup-div">Well done, you master the waste sorting!</div>
+          <div class="popup-div">👏🏼</div>
         </div>
       </div>
     </section>
