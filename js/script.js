@@ -125,6 +125,10 @@ var plateImg = new Image();
 plateImg.src = "./images/greenGarbageOK/plate.png";
 plateImg.color = "green";
 
+var buttImg = new Image();
+buttImg.src = "./images/greenGarbageOK/butt.png";
+buttImg.color = "green";
+
 //Waste
 //-------------------------------
 //Waste for the white bin
@@ -154,7 +158,7 @@ perrierImg.src = "./images/whiteGarbageOK/perrier.png";
 perrierImg.color = "white";
 
 //ARRAY WITH ALL GARBAGE IMAGES
-
+//-------------------------------
 var garbageImages1 = [
   belleIlloiseImg,
   bonduelleImg,
@@ -180,7 +184,15 @@ var garbageImages1 = [
   bonesImg,
   fishImg,
   glassWineImg,
-  plateImg
+  plateImg,
+  buttImg,
+  diaperImg,
+  bananaImg,
+  bonesImg,
+  fishImg,
+  glassWineImg,
+  plateImg,
+  buttImg
 ];
 
 var garbageImages2 = [
@@ -209,6 +221,14 @@ var garbageImages2 = [
   fishImg,
   glassWineImg,
   plateImg,
+  buttImg,
+  diaperImg,
+  bananaImg,
+  bonesImg,
+  fishImg,
+  glassWineImg,
+  plateImg,
+  buttImg,
   beerImg,
   glassBottleImg,
   glassGreenImg,
@@ -511,13 +531,13 @@ function drawingLoop() {
 
     if (totalLevel1 === 5) {
       $(".popup-end-win").css({ display: "block" });
-      $(".flex-header, .flex-middle").css({ opacity: "0.1" });
+      $(".flex-header, .flex-middle, footer").css({ opacity: "0.1" });
       win.play();
       return;
     }
     if (livesLevel1 === 0) {
       $(".popup-end-lose-level1").css({ display: "block" });
-      $(".flex-header, .flex-middle").css({ opacity: "0.1" });
+      $(".flex-header, .flex-middle, footer").css({ opacity: "0.1" });
       lose.play();
       return;
     }
@@ -540,13 +560,13 @@ function drawingLoop() {
 
     if (yellowPoints >= 10 && greenPoints >= 5 && whitePoints >= 5) {
       $(".popup-end-win-level2").css({ display: "block" });
-      $(".flex-header, .flex-middle").css({ opacity: "0.1" });
+      $(".flex-header, .flex-middle, footer").css({ opacity: "0.1" });
       win.play();
       return;
     }
     if (lifeLevel2 <= 0) {
       $(".popup-end-lose-level2").css({ display: "block" });
-      $(".flex-header, .flex-middle").css({ opacity: "0.1" });
+      $(".flex-header, .flex-middle, footer").css({ opacity: "0.1" });
       lose.play();
       return;
     }
@@ -574,7 +594,7 @@ $(".btn-keys").click(function() {
 
 $(".btn-play").click(function() {
   $(".popup-keys").css({ display: "none" });
-  $(".flex-header, .flex-middle").css({ opacity: "1" });
+  $(".flex-header, .flex-middle, footer").css({ opacity: "1" });
   arrayGarbage();
   drawingLoop();
 });
@@ -596,7 +616,7 @@ $(".btn-play-again-level1").click(function() {
   // playerLevel = 1;
   $(".points").html(totalLevel1);
   $(".lived").html(livesLevel1);
-  $(".flex-header, .flex-middle").css({ opacity: "1" });
+  $(".flex-header, .flex-middle, footer").css({ opacity: "1" });
   $(".popup-end-lose-level1").css({ display: "none" });
   console.log("WORKING LEVEL 1");
 });
@@ -618,7 +638,7 @@ $(".btn-play-level2").click(function() {
   arrayGarbage();
   drawingLoop();
   playerLevel = 2;
-  $(".flex-header, .flex-middle").css({ opacity: "1" });
+  $(".flex-header, .flex-middle, footer").css({ opacity: "1" });
   $(".popup-rules-level2").css({ display: "none" });
 });
 
@@ -639,7 +659,7 @@ $(".btn-play-again-level2").click(function() {
   arrayGarbage();
   drawingLoop();
   playerLevel = 2;
-  $(".flex-header, .flex-middle").css({ opacity: "1" });
+  $(".flex-header, .flex-middle, footer").css({ opacity: "1" });
   $(".popup-end-lose-level2").css({ display: "none" });
   console.log("WORKING LEVEL 2");
   console.log(playerLevel);
