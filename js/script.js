@@ -158,7 +158,7 @@ perrierImg.src = "./images/whiteGarbageOK/perrier.png";
 perrierImg.color = "white";
 
 //ARRAY WITH ALL GARBAGE IMAGES
-//-------------------------------
+
 var garbageImages1 = [
   belleIlloiseImg,
   bonduelleImg,

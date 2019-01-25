@@ -1,3 +1,8 @@
+/* 
+Default CSS (global & small screen)
+-----------------------------------
+*/
+
 body {
   font-family: "Montserrat", sans-serif;
   color: #015a92;
@@ -43,7 +48,7 @@ body {
 .popup-end-lose-level1,
 .popup-end-lose-level2 {
   width: 700px;
-  height: 200px;
+  height: 250px;
   position: fixed;
   background-color: #e20037;
   color: white;
@@ -76,9 +81,6 @@ body {
   font-size: 30px;
 }
 
-/* Button */
-/* ------ */
-
 .btn-rules,
 .btn-keys,
 .btn-play,
@@ -93,9 +95,6 @@ body {
   padding: 10px;
   margin: 10px 0;
 }
-
-/* Color */
-/* ------ */
 
 .yellow {
   color: #fecc02;
@@ -119,11 +118,11 @@ body {
   padding: 2px 0 2px 0;
   margin-bottom: 20px;
   opacity: 0;
-  height: 50px;
 }
 
 h1 {
   font-size: 20px;
+  height: 50px;
 }
 
 h2 {
